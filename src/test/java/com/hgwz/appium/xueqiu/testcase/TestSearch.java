@@ -1,5 +1,7 @@
 package com.hgwz.appium.xueqiu.testcase;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.hgwz.appium.xueqiu.page.App;
 import com.hgwz.appium.xueqiu.page.SearchPage;
 import org.junit.After;
@@ -11,6 +13,7 @@ import org.junit.runners.Parameterized;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.Collection;
@@ -40,12 +43,18 @@ public class TestSearch {
      * 用Junit4完成参数化,参数为：股票名称、股价
      */
     @Parameterized.Parameters
-    public static Collection<Object[]> data() {
+    public static Collection<Object[]> data() throws IOException {
+        /* 用读取yaml文件替换代码中写死参数,即实现了测试数据的数据驱动
         return Arrays.asList(new Object[][]{
                 {"alibaba",100f},
                 {"xiaomi",8f},
                 {"jd",33f}
-        });
+        });*/
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        String path = "/" + TestSearch.class.getCanonicalName().replace(".", "/")+".yaml";
+        Object[][] demo = mapper.readValue(TestSearch.class.getResourceAsStream(path),
+                Object[][].class);
+        return Arrays.asList(demo);
     }
     //第一个参数股票名称
     @Parameterized.Parameter(0)
