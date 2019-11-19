@@ -11,7 +11,9 @@ public class TestYamlRead {
 
     public static void main(String[] args) throws IOException {
         TestYamlRead testYamlRead = new TestYamlRead();
-        //testYamlRead.readYaml01();
+        testYamlRead.readYaml01();
+        System.out.println("-----分隔线-----");
+
         testYamlRead.readYaml02();
     }
 
