@@ -1,7 +1,7 @@
-package com.hgwz.appium.xueqiu.testcase;
+package xueqiu.testcase;
 
-import com.hgwz.appium.xueqiu.page.App;
-import com.hgwz.appium.xueqiu.page.StockPage;
+import xueqiu.page.App;
+import xueqiu.page.StockPage;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

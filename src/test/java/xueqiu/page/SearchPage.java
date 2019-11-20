@@ -1,9 +1,7 @@
-package com.hgwz.appium.xueqiu.page;
+package xueqiu.page;
 
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import sun.security.acl.AclImpl;
 
 /**
  * 封装搜索页

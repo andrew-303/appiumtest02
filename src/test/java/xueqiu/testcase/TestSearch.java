@@ -1,9 +1,9 @@
-package com.hgwz.appium.xueqiu.testcase;
+package xueqiu.testcase;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.hgwz.appium.xueqiu.page.App;
-import com.hgwz.appium.xueqiu.page.SearchPage;
+import xueqiu.page.App;
+import xueqiu.page.SearchPage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -52,6 +52,7 @@ public class TestSearch {
         });*/
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         String path = "/" + TestSearch.class.getCanonicalName().replace(".", "/")+".yaml";
+        System.out.println("path="+path);
         Object[][] demo = mapper.readValue(TestSearch.class.getResourceAsStream(path),
                 Object[][].class);
         return Arrays.asList(demo);
@@ -62,7 +63,7 @@ public class TestSearch {
 
     //第二个参数股价
     @Parameterized.Parameter(1)
-    public Float price;
+    public Double price;
 
     /**
      * 测试前置条件
@@ -80,7 +81,7 @@ public class TestSearch {
     @Test
     public void search() {
         logger.info("开始搜索页测试");
-        assertThat(searchPage.search(stock).getCurrentPrice(), greaterThanOrEqualTo(price));
+        assertThat(searchPage.search(stock).getCurrentPrice(), greaterThanOrEqualTo(price.floatValue()));
     }
 
     /**

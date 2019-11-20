@@ -15,6 +15,9 @@ public class TestYamlRead {
         System.out.println("-----分隔线-----");
 
         testYamlRead.readYaml02();
+
+        System.out.println(TestYamlRead.class.getCanonicalName());
+        System.out.println(TestYamlRead.class.getName());
     }
 
     public void readYaml01() throws IOException {

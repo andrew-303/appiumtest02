@@ -1,4 +1,4 @@
-package com.hgwz.appium.xueqiu.page;
+package xueqiu.page;
 
 import org.openqa.selenium.By;
 
