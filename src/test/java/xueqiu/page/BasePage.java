@@ -18,6 +18,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class BasePage {
     private static Logger logger = LoggerFactory.getLogger(BasePage.class);
+
+
     /**
      * 定义driver
      */

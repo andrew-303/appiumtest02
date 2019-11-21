@@ -1,0 +1,23 @@
+elements: #元素
+  search_input_text:
+    element:
+      - id: search_input_text
+        os: android
+      - id: search_edit
+        os： ios
+      - xpath: search_input_text
+        os: android
+        version: 4.4
+methods:  #方法
+  search:
+    steps:
+      - id: search_input_text
+        #send: pdd
+        send: ${keyword}
+      -id: name
+
+  getCurrentPrice:
+    steps:
+      - id: current_price
+        get: text
+        dump: price
